@@ -14,6 +14,7 @@ type WindowCardProps = {
   toolbar?: ReactNode;
   className?: string;
   bodyClassName?: string;
+  sidebarClassName?: string;
 };
 
 export function WindowCard({
@@ -28,6 +29,7 @@ export function WindowCard({
   toolbar,
   className,
   bodyClassName,
+  sidebarClassName,
 }: WindowCardProps) {
   return (
     <section
@@ -70,7 +72,7 @@ export function WindowCard({
       </header>
       <div className="flex min-h-0 flex-1">
         {sidebar ? (
-          <aside className="border-line-strong bg-surface min-w-40 border-r p-3">
+          <aside className={cn("border-line-strong bg-surface min-w-40 border-r p-3", sidebarClassName)}>
             {sidebar}
           </aside>
         ) : null}

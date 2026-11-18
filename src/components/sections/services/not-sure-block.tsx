@@ -1,10 +1,10 @@
-import Link from "next/link";
+﻿import Link from "next/link";
 import { ChatBubble } from "@/components/ui/chat-bubble";
 import { buttonClassNames } from "@/lib/button-styles";
 
 export function NotSureBlock() {
   return (
-    <section className="glass rounded-window mx-auto grid w-full max-w-7xl gap-7 px-6 py-8 md:grid-cols-[1fr_auto] md:items-center md:px-10">
+    <section className="mx-auto grid w-full max-w-7xl gap-7 px-5 py-10 md:grid-cols-[1fr_auto] md:items-center md:px-8 lg:px-12">
       <div>
         <h2 className="font-heading text-h3 mb-5">Not sure what you need?</h2>
         <div className="flex max-w-2xl flex-col gap-3">
