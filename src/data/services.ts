@@ -232,7 +232,7 @@ export const services: Service[] = [
       "Do I need experience?",
       "No. The program starts from the basics.",
       "Will I get a certificate?",
-      "Yes, a certificate of completion after the capstone. (Fictional.)",
+      "Yes, you'll receive a certificate of completion after the capstone.",
     ),
     related: ["google-ads", "meta-ads", "social-media-management"],
   },

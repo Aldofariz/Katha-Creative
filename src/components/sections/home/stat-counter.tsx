@@ -36,7 +36,7 @@ export function StatCounter({ stat }: { stat: Stat }) {
   return (
     <motion.span
       ref={elementRef}
-      className="font-heading text-h2 block tabular-nums"
+      className="font-sans text-h2 block tabular-nums"
     >
       {formatted}
     </motion.span>

@@ -4,19 +4,18 @@
 
 ## Summary
 
-Katha Creative is a full-service digital marketing agency. (Internal note: it is a fictional brand used for a portfolio project. Never state this on the site.) The website presents the agency's eight services and drives visitors to a contact form. The site's real job, as a portfolio project, is to demonstrate polished, playful, interaction-rich frontend work.
+Katha Creative is a full-service digital marketing agency website and portfolio project. It presents eight services and guides visitors to a contact form. The project demonstrates polished, interaction-rich frontend work.
 
-## Concept: "macOS playground" (v1; see v2 for the current direction: modern macOS, faithful and restrained)
+## Concept: "Modern macOS, faithful and restrained"
 
-The site feels like a living Mac desktop that has been invited to a party:
+The site uses a clean white and off-white canvas, with personality coming from interaction and careful recreations of familiar Mac patterns:
 
-- Frosted-glass cards and buttons (macOS translucency)
-- Cards that look like app windows (traffic-light dots)
-- A navbar styled like the macOS menu bar
-- iMessage-style chat bubbles as both decoration and storytelling
-- 3D emoji floating in the background, reacting to the cursor
+- A faithful macOS menu bar, window chrome, and Dock
+- Finder-style service lists and Messages-style conversations
+- Whitespace, typography, and hairline separators instead of decorative cards
+- Fluent Emoji only in inline conversation details and the CTA sticker
 
-Tone is friendly, casual, a little cheeky, never childish.
+Tone is friendly, casual, and a little cheeky, while staying clear and professional.
 
 ## Reference sites (for feel, not for copying)
 

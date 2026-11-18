@@ -1,4 +1,4 @@
-﻿"use client";
+"use client";
 
 import { useState } from "react";
 import Link from "next/link";
@@ -26,7 +26,7 @@ export function CtaBanner({
     <section className={`bg-surface w-full px-5 py-16 md:px-8 md:py-24 lg:px-12 ${className}`}>
       <div className="mx-auto flex max-w-7xl items-center justify-between gap-8">
         <div className="max-w-2xl">
-          <h2 className="font-heading text-h2">{title}</h2>
+          <h2 className="font-sans text-h2">{title}</h2>
           <p className="text-body-lg text-ink-soft mt-4">{description}</p>
           <Link href="/contact" className={buttonClassNames("primary", "lg", "mt-8")}>Start a project</Link>
         </div>

@@ -14,7 +14,7 @@ type ChatBubbleProps = {
 };
 
 const bubbleVariants = {
-  sent: "self-end rounded-chat rounded-br-[6px] bg-brand text-white",
+  sent: "self-end rounded-chat rounded-br-[6px] bg-accent text-white",
   received: "self-start rounded-chat rounded-bl-[6px] bg-chat-received text-ink",
   typing: "self-start rounded-chat rounded-bl-[6px] bg-chat-received text-ink",
 } as const;

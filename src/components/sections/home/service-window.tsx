@@ -28,7 +28,7 @@ export function ServiceDetails({
             size={compact ? 56 : 72}
           />
           <div className="min-w-0 pt-1">
-            <h2 className="font-heading text-[24px] leading-tight font-bold tracking-tight sm:text-[28px]">
+            <h2 className="font-sans text-[24px] leading-tight font-bold tracking-tight sm:text-[28px]">
               {service.title}
             </h2>
             <p className="text-ink mt-2 font-medium">{service.tagline}</p>

@@ -3,7 +3,14 @@
 import { motion, useScroll, useTransform } from "motion/react";
 import type { MotionValue } from "motion/react";
 import { useRef } from "react";
-import { Check } from "lucide-react";
+import {
+  ArrowUpRight,
+  CalendarDays,
+  Check,
+  Search,
+  Target,
+  UsersRound,
+} from "lucide-react";
 import { ChatBubble } from "@/components/ui/chat-bubble";
 import { WindowCard } from "@/components/ui/window-card";
 import { useReducedMotionSafe } from "@/hooks/use-reduced-motion-safe";
@@ -63,52 +70,110 @@ function StageWindow({ index }: { index: number }) {
   if (!stage) return null;
   return (
     <WindowCard title={`${stage.name.toLowerCase()}.app`} className="h-full">
-      <p className="font-heading text-h3 mb-5">{stage.window}</p>
+      <div className="mb-6 flex items-start justify-between gap-4">
+        <div>
+          <p className="text-small text-accent mb-1 font-semibold">{stage.name}</p>
+          <h3 className="font-sans text-h3">{stage.window}</h3>
+        </div>
+        <span className="text-small text-ink-soft mt-1 shrink-0 tabular-nums">
+          {String(index + 1).padStart(2, "0")} / 04
+        </span>
+      </div>
       {index === 1 ? (
-        <div className="grid grid-cols-3 gap-2">
-          {stage.detail
-            .filter((_, itemIndex) => itemIndex % 2 === 0)
-            .map((item) => (
-              <div
-                key={item}
-                className="border-line border-b px-2 py-4 text-center text-sm font-medium"
-              >
-                {item}
+        <>
+          <div className="border-line flex items-center gap-2 border-b pb-3 text-xs">
+            <span className="size-2 rounded-full bg-accent" />
+            <span className="font-medium">Campaign direction</span>
+            <span className="text-ink-soft ml-auto">3 priorities</span>
+          </div>
+          <ol className="divide-line divide-y">
+            {stage.detail.filter((_, itemIndex) => itemIndex % 2 === 0).map((item, itemIndex) => {
+              const Icon = itemIndex === 0 ? Search : itemIndex === 1 ? UsersRound : Target;
+              return (
+                <li key={item} className="grid grid-cols-[28px_1fr_20px] items-center gap-3 py-4">
+                  <span className="text-accent grid size-7 place-items-center rounded-full bg-accent-wash">
+                    <Icon aria-hidden="true" className="size-4" />
+                  </span>
+                  <span className="min-w-0">
+                    <span className="block text-sm font-semibold">{item}</span>
+                    <span className="text-small text-ink-soft">{stage.detail[itemIndex * 2 + 1]}</span>
+                  </span>
+                  <ArrowUpRight aria-hidden="true" className="text-ink-soft size-4" />
+                </li>
+              );
+            })}
+          </ol>
+        </>
+      ) : index === 2 ? (
+        <>
+          <div className="mb-2 flex items-center gap-2">
+            <CalendarDays aria-hidden="true" className="text-ink-soft size-4" />
+            <span className="text-small text-ink-soft">Launch day · Tuesday</span>
+          </div>
+          <ul className="divide-line divide-y">
+            {stage.detail.map((item, itemIndex) => (
+              <li key={item} className="flex min-h-12 items-center gap-3 py-2">
+                <span aria-hidden="true" className="text-accent grid size-5 shrink-0 place-items-center rounded-full border border-accent/30 bg-accent-wash">
+                  <Check className="size-3" strokeWidth={2.5} />
+                </span>
+                <span className="text-sm font-medium">{item}</span>
+                <span className="text-small text-ink-soft ml-auto">{itemIndex === 3 ? "Ready" : "Done"}</span>
+              </li>
+            ))}
+          </ul>
+          <p className="text-small text-ink-soft mt-4 border-l-2 border-accent pl-3">
+            Everything is checked. The campaign is ready to go live.
+          </p>
+        </>
+      ) : index === 3 ? (
+        <>
+          <div className="mb-5 flex items-end justify-between gap-4">
+            <div>
+              <p className="text-small text-ink-soft">Sales this week</p>
+              <p className="text-3xl leading-tight font-semibold tracking-tight tabular-nums">+38%</p>
+            </div>
+            <span className="text-small text-ink-soft flex items-center gap-1.5 pb-1">
+              <span className="size-2 rounded-full bg-accent" />
+              Online sales
+            </span>
+          </div>
+          <div className="relative h-32 border-b border-line-strong">
+            <div aria-hidden="true" className="absolute inset-0 grid grid-rows-3">
+              <span className="border-t border-line" />
+              <span className="border-t border-line" />
+              <span className="border-t border-line" />
+            </div>
+            <div className="relative z-[1] flex h-full items-end gap-3 px-2 sm:gap-5">
+              {[35, 50, 44, 72, 88].map((height, bar) => (
+                <span key={bar} className="bg-accent/85 relative flex-1 rounded-t-sm" style={{ height: `${height}%` }}>
+                  {bar === 4 ? <span className="absolute -top-1 left-1/2 size-2 -translate-x-1/2 rounded-full border-2 border-accent bg-white" /> : null}
+                </span>
+              ))}
+            </div>
+          </div>
+          <div className="text-small text-ink-soft flex justify-between px-1 pt-2">
+            {(["Mon", "Tue", "Wed", "Thu", "Fri"] as const).map((day) => <span key={day}>{day}</span>)}
+          </div>
+        </>
+      ) : (
+        <>
+          <div className="border-line mb-3 flex items-center justify-between border-b pb-3">
+            <span className="text-small text-ink-soft">Project overview</span>
+            <span className="text-small text-accent font-medium">In progress</span>
+          </div>
+          <dl className="divide-line divide-y text-sm">
+            {stage.detail.filter((_, itemIndex) => itemIndex % 2 === 0).map((label, itemIndex) => (
+              <div key={label} className="grid grid-cols-[auto_1fr] gap-4 py-3">
+                <dt className="text-ink-soft">{label}</dt>
+                <dd className="text-right font-medium">{stage.detail[itemIndex * 2 + 1]}</dd>
               </div>
             ))}
-        </div>
-      ) : index === 2 ? (
-        <ul className="space-y-3">
-          {stage.detail.map((item) => (
-            <li key={item} className="flex items-center gap-3 text-sm">
-              <Check aria-hidden="true" className="text-accent size-4 shrink-0" />
-              {item}
-            </li>
-          ))}
-        </ul>
-      ) : index === 3 ? (
-        <div className="border-line flex h-28 items-end gap-3 border-b px-3">
-          {[35, 50, 44, 72, 88].map((height, bar) => (
-            <span
-              key={bar}
-              className="bg-accent flex-1"
-              style={{ height: `${height}%` }}
-            />
-          ))}
-        </div>
-      ) : (
-        <dl className="divide-line divide-y text-sm">
-          {stage.detail.filter((_, itemIndex) => itemIndex % 2 === 0).map((label, itemIndex) => (
-            <div key={label} className="grid grid-cols-[auto_1fr] gap-4 py-3">
-              <dt className="text-ink-soft">{label}</dt>
-              <dd className="text-right font-medium">{stage.detail[itemIndex * 2 + 1]}</dd>
-            </div>
-          ))}
-        </dl>
+          </dl>
+          <div className="mt-5 flex gap-1.5" aria-label="Brief progress, step one of four">
+            {[0, 1, 2, 3].map((step) => <span key={step} aria-hidden="true" className={`h-1 flex-1 rounded-full ${step === 0 ? "bg-accent" : "bg-line-strong"}`} />)}
+          </div>
+        </>
       )}
-      {index === 3 ? (
-        <p className="text-small text-ink-soft mt-4">Delivered</p>
-      ) : null}
     </WindowCard>
   );
 }
@@ -177,7 +242,7 @@ export function WorkStages() {
     >
       <div className="mx-auto max-w-7xl px-5 pt-16 md:px-8 md:pt-24 lg:px-12">
         <div className="mb-8 max-w-2xl">
-          <h2 className="font-heading text-h2">
+          <h2 className="font-sans text-h2">
             From first message to first results
           </h2>
         </div>
@@ -189,7 +254,7 @@ export function WorkStages() {
             className="bg-line absolute top-8 bottom-8 left-2.5 w-px md:left-4"
           >
             <motion.span
-              className="bg-brand absolute top-0 left-0 h-full w-full origin-top"
+              className="bg-accent absolute top-0 left-0 h-full w-full origin-top"
               style={{ scaleY: reducedMotion ? 1 : progressScale }}
             />
           </div>

@@ -1,4 +1,4 @@
-﻿import { Service } from "@/types";
+import { Service } from "@/types";
 
 export function ServiceOverview({ service }: { service: Service }) {
   const training = Boolean(service.curriculum && service.program);
@@ -7,7 +7,7 @@ export function ServiceOverview({ service }: { service: Service }) {
     <>
       <section aria-labelledby="included-title" className="bg-surface">
         <div className="mx-auto w-full max-w-7xl px-5 py-12 md:px-8 lg:px-12">
-          <h2 id="included-title" className="font-heading text-h2 mb-7">
+          <h2 id="included-title" className="font-sans text-h2 mb-7">
             {training ? "What you'll learn" : "What's included"}
           </h2>
           {training ? (
@@ -37,7 +37,7 @@ export function ServiceOverview({ service }: { service: Service }) {
       </section>
       {service.program ? (
         <section aria-labelledby="program-details-title" className="mx-auto w-full max-w-7xl px-5 py-12 md:px-8 lg:px-12">
-          <h2 id="program-details-title" className="font-heading text-h2 mb-6">Program details</h2>
+          <h2 id="program-details-title" className="font-sans text-h2 mb-6">Program details</h2>
           <dl className="border-line grid border-y sm:grid-cols-2 lg:grid-cols-4">
             {Object.entries(service.program).map(([label, value]) => (
               <div key={label} className="border-line border-b py-4 sm:px-4 sm:first:pl-0 lg:border-r lg:border-b-0 lg:first:pl-0 lg:last:border-r-0">
@@ -50,7 +50,7 @@ export function ServiceOverview({ service }: { service: Service }) {
       ) : null}
       <section aria-labelledby="process-title" className="bg-surface">
         <div className="mx-auto w-full max-w-7xl px-5 py-12 md:px-8 lg:px-12">
-          <h2 id="process-title" className="font-heading text-h2 mb-7">How it works</h2>
+          <h2 id="process-title" className="font-sans text-h2 mb-7">How it works</h2>
           <ol className="border-line border-t">
             {service.steps.map((step, index) => (
               <li key={step.title} className="border-line grid gap-2 border-b py-4 sm:grid-cols-[64px_minmax(180px,0.8fr)_1.2fr] sm:items-baseline sm:gap-6">
@@ -63,7 +63,7 @@ export function ServiceOverview({ service }: { service: Service }) {
         </div>
       </section>
       <section aria-labelledby="fit-title" className="mx-auto w-full max-w-7xl px-5 py-12 md:px-8 lg:px-12">
-        <h2 id="fit-title" className="font-heading text-h2 mb-5">Who it&apos;s for</h2>
+        <h2 id="fit-title" className="font-sans text-h2 mb-5">Who it&apos;s for</h2>
         <ul className="border-line grid border-t sm:grid-cols-3">
           {service.fitFor.map((fit) => (
             <li key={fit} className="border-line border-b py-4 text-ink-soft sm:px-4 sm:first:pl-0 sm:last:pr-0">{fit}</li>

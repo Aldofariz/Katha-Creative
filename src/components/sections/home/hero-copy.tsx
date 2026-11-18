@@ -16,7 +16,7 @@ export function HeroCopy() {
       animate={{ opacity: 1 }}
       transition={{ duration: reducedMotion ? 0 : 0.7, ease: "easeOut" }}
     >
-      <h1 className="font-heading text-display leading-[1.02] tracking-[-0.045em]">
+      <h1 className="font-sans text-display leading-[1.02] tracking-[-0.045em]">
         {siteCopy.home.heroTitle}
       </h1>
       <p className="text-body-lg text-ink-soft mt-6 max-w-[58ch]">

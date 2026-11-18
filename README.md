@@ -1,36 +1,80 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Katha Creative
 
-## Getting Started
+A digital marketing agency website built around a restrained, macOS-inspired interface. It brings together service discovery, scroll-led storytelling, and familiar desktop patterns such as Finder lists, Messages conversations, and app windows.
 
-First, run the development server:
+## Features
+
+- Home page with animated Messages-style hero, service Dock, statistics, and scroll-driven work stages
+- Finder-style service directory with category filters and eight service detail pages
+- Interactive Reminders-style training checklist
+- About page with a folder window, selectable team directory, and scroll-linked timeline
+- Contact form with client-side validation and a simulated success state
+- Responsive layouts and reduced-motion support
+
+The contact form does not send or store submissions. No backend or environment variables are required.
+
+## Tech stack
+
+- Next.js 16 with the App Router
+- React 19 and TypeScript
+- Tailwind CSS 4
+- Motion for React
+- Lucide icons
+- Zod for form validation
+- Inter, with Caveat used for the name-tag sticker
+
+## Getting started
+
+### Requirements
+
+- Node.js 20.9 or later
+- npm
+
+### Install and run
 
 ```bash
+npm ci
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open [http://localhost:3000](http://localhost:3000).
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Available scripts
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+| Command             | Description                        |
+| ------------------- | ---------------------------------- |
+| `npm run dev`       | Start the local development server |
+| `npm run build`     | Create a production build          |
+| `npm run start`     | Serve the production build locally |
+| `npm run lint`      | Run ESLint                         |
+| `npm run typecheck` | Check TypeScript types             |
 
-## Learn More
+Run `npm run build` before `npm run start`.
 
-To learn more about Next.js, take a look at the following resources:
+## Pages
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+- `/` - Home
+- `/services` - Service directory
+- `/services/[slug]` - Service details
+- `/about` - Agency story, team, and timeline
+- `/contact` - Contact form and studio details
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## Project structure
 
-## Deploy on Vercel
+```text
+src/
+|-- app/           # Routes, layouts, metadata, and global styles
+|-- components/    # Layout, UI, effects, and page sections
+|-- data/          # Service, team, testimonial, FAQ, and site content
+|-- hooks/         # Shared React hooks
+|-- lib/           # Helpers and shared motion settings
+`-- types/         # Shared TypeScript types
+public/
+`-- emoji/         # Fluent Emoji assets used by the interface
+```
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+The Fluent Emoji assets include their license at [`public/emoji/LICENSE-fluentui-emoji.txt`](public/emoji/LICENSE-fluentui-emoji.txt).
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## Configuration
+
+Site name, tagline, contact details, and response-time copy are kept in [`src/data/site.ts`](src/data/site.ts). Update those values before publishing the site. The repository does not require API keys or other secrets to run.

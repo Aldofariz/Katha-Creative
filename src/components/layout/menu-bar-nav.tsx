@@ -6,7 +6,7 @@ import { usePathname } from "next/navigation";
 import { BatteryFull, ChevronDown, Menu, Search, Wifi, X } from "lucide-react";
 import { services } from "@/data/services";
 import { site } from "@/data/site";
-import { EmojiImage } from "@/components/ui/emoji-image";
+import { AppIcon } from "@/components/ui/app-icon";
 import { cn } from "@/lib/cn";
 
 function LiveClock() {
@@ -49,7 +49,8 @@ const itemClass =
 const serviceLinks = services.map((service) => ({
   href: `/services/${service.slug}`,
   label: service.title,
-  emoji: service.emoji,
+  emojiKey: service.emoji,
+  accent: service.accent,
 }));
 const serviceMenuLength = serviceLinks.length + 1;
 
@@ -102,12 +103,25 @@ export function MenuBarNav() {
             aria-label={`${site.name} home`}
             className="focus-visible:outline-accent flex h-7 shrink-0 items-center gap-2 rounded px-1 focus-visible:outline-2"
           >
-            <span
+            <svg
               aria-hidden="true"
-              className="grid size-5 place-items-center rounded-[5px] bg-[#1d1d1f] text-[13px] leading-none font-bold text-white"
+              viewBox="0 0 100 100"
+              className="size-6 shrink-0"
             >
-              K
-            </span>
+              <rect width="100" height="100" rx="22.37" fill="#1d1d1f" />
+              <g
+                fill="none"
+                stroke="white"
+                strokeWidth="9"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+              >
+                <path d="M30 26V74" />
+                <path d="M60 27 31 51" />
+                <path d="M42 43 62 74" />
+              </g>
+              <circle cx="75" cy="72" r="5.6" fill="#2e93ff" />
+            </svg>
             <span className="text-ink text-[13px] font-bold">{site.name}</span>
           </Link>
 
@@ -190,12 +204,7 @@ export function MenuBarNav() {
                       )}
                       onClick={() => closeMenu()}
                     >
-                      <EmojiImage
-                        emojiKey={item.emoji}
-                        width={16}
-                        height={16}
-                        className="size-4 shrink-0"
-                      />
+                      <AppIcon accent={item.accent} emojiKey={item.emojiKey} size={18} />
                       <span className="truncate">{item.label}</span>
                     </Link>
                   ))}
@@ -313,7 +322,7 @@ export function MenuBarNav() {
                     className="focus-visible:outline-accent flex min-h-10 items-center gap-2 rounded px-3 text-sm hover:bg-black/[0.08] focus-visible:outline-2"
                     onClick={() => setMobileOpen(false)}
                   >
-                    <EmojiImage emojiKey={item.emoji} width={18} height={18} />
+                    <AppIcon accent={item.accent} emojiKey={item.emojiKey} size={22} />
                     {item.label}
                   </Link>
                 ))}

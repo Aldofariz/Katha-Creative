@@ -1,12 +1,11 @@
 import { cn } from "@/lib/cn";
 
-export type ButtonVariant = "primary" | "secondary" | "glass" | "ghost";
+export type ButtonVariant = "primary" | "secondary" | "ghost";
 export type ButtonSize = "md" | "lg";
 
 const variantClasses: Record<ButtonVariant, string> = {
   primary: "bg-accent text-white hover:bg-accent-hover active:bg-accent-strong",
   secondary: "border border-line-strong bg-white text-ink shadow-sm hover:bg-surface",
-  glass: "border border-line-strong bg-white text-ink shadow-sm hover:bg-surface",
   ghost: "bg-transparent text-link underline-offset-4 hover:underline",
 };
 

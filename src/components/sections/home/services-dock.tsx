@@ -157,7 +157,7 @@ export function ServicesDock() {
     <section aria-labelledby="home-services-title" className="bg-surface">
       <div className="mx-auto w-full max-w-7xl px-5 py-16 md:px-8 md:py-24 lg:px-12">
         <div className="mb-9 max-w-2xl">
-          <h2 id="home-services-title" className="font-heading text-h2">
+          <h2 id="home-services-title" className="font-sans text-h2">
             {siteCopy.home.servicesTitle}
           </h2>
           <p className="text-body-lg text-ink-soft mt-4">

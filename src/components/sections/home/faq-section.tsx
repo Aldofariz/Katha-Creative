@@ -8,7 +8,7 @@ export function FaqSection() {
       className="mx-auto grid w-full max-w-7xl gap-8 px-5 py-16 md:grid-cols-[0.7fr_1.3fr] md:px-8 md:py-24 lg:px-12"
     >
       <div>
-        <h2 id="home-faq-title" className="font-heading text-h2">
+        <h2 id="home-faq-title" className="font-sans text-h2">
           Questions, answered
         </h2>
         <p className="text-ink-soft mt-4 max-w-sm">

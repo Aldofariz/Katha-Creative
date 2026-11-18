@@ -76,7 +76,7 @@ export type TimelineItem = { year: string; title: string; description: string };
 
 - **Brand:** Katha Creative
 - **Tagline:** Brands with a story worth sharing.
-- **Contact info (placeholder, swap before the site goes public):** hello@kathacreative.com, Bandung, Indonesia, "We reply within one business day."
+- **Contact info:** email and city are owner-managed placeholders in `src/data/site.ts`; the current email is `hello@kathacreative.com`, the city is left empty, and the response time is "We reply within one business day."
 
 ## Home copy
 
@@ -263,10 +263,10 @@ Related-services rule: `related` lists 3 slugs (exclude self), preferring the sa
 
 ### Values (4)
 
-1. **Story first.** Every campaign starts with something worth saying. (emoji: `speech-balloon`)
-2. **Numbers don't lie.** We measure everything and share it honestly. (emoji: `chart-increasing`)
-3. **Make it fun.** If we're not enjoying it, your audience won't either. (emoji: `party-popper`)
-4. **Say it plainly.** No jargon, no mystery, no surprise invoices. (emoji: `light-bulb`)
+1. **Story first.** Every campaign starts with something worth saying.
+2. **Numbers don't lie.** We measure everything and share it honestly.
+3. **Make it fun.** If we're not enjoying it, your audience won't either.
+4. **Say it plainly.** No jargon, no mystery, no surprise invoices.
 
 ### Timeline (`timeline.ts`)
 

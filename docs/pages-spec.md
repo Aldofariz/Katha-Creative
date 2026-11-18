@@ -4,7 +4,7 @@
 
 All copy is in `content.md`. Visual rules are in `design-system.md`. Motion rules are in `animation-spec.md`.
 
-Every page uses the shared shell: `MenuBarNav` (top), `<main>`, `Footer`, with `EmojiBackdrop` and blobs behind. Each page exports metadata via `generateMetadata` or `metadata` (title, description, Open Graph).
+Every page uses the shared shell: `MenuBarNav` (top), `<main>`, and `Footer`. There is no global emoji backdrop or blob layer. Each page exports metadata via `generateMetadata` or `metadata` (title, description, Open Graph).
 
 ---
 
@@ -14,12 +14,7 @@ See component spec in `design-system.md`. Links: Services (dropdown with 8 servi
 
 ## Global: `Footer`
 
-- Glass panel, 3 columns on desktop, stacked on mobile.
-- Column 1: Katha logo and tagline.
-- Column 2: Services (links to all 8 detail pages).
-- Column 3: Company (About, Contact) and contact info (email `hello@kathacreative.com`, city "Bandung, Indonesia").
-- Bottom row: copyright.
-- Optional: tiny draggable emoji in the footer that can be flicked around (nice-to-have).
+Use the plain footer described in `style-revision-v2.md`, section 9: wordmark and tagline, Services and Company columns, contact line, and copyright, separated by a hairline. No glass panel or decorative emoji.
 
 ---
 
@@ -117,14 +112,10 @@ Training Program page has the same structure but replaces "What's included" with
 
 ## Contact (`/contact`)
 
-1. **Header:** short `h1` ("Tell us what you're building"), supporting line.
-2. **Layout:** two columns on desktop: left is a `WindowCard` styled like a "New Message" window; right has contact details (email, city, response time) and a few floating emoji.
-3. **Form fields:** name, email, service (select, pre-selected from `?service=` param if valid), budget range (select: Under $1k, $1k to $5k, $5k to $15k, $15k+), message (textarea, min 20 characters).
-4. **Validation (zod):** name 2 to 80 chars, valid email, service from the 8 slugs plus "Not sure yet", message 20 to 1000 chars. Inline errors under fields, announced via `aria-live="polite"`.
-5. **Submit (simulated):** button enters loading state for about 1.2s, then the window swaps to a success state: a "Delivered" sent bubble with a summary, confetti burst, and a reply bubble from Katha: "got it! we'll reply within one business day." A "Send another message" ghost button resets the form. **No network request** (see v2 task V2-13 for the optional real endpoint).
+Follow `style-revision-v2.md`, section 8: Mail-style compose window with a toolbar Send action, hairline field rows, and a plain contact definition list. Preserve the existing Zod validation and simulated 1.2-second submit behavior; this form does not send a network request.
 
 ---
 
 ## Not found (`not-found.tsx`)
 
-Glass window titled `404.app`, a confused chat bubble ("this page wandered off"), a sad-then-hopeful emoji, and a primary button back to Home.
+Use the `404` WindowCard, kaomoji, one line of copy ("This page wandered off."), and a primary button to Home, as specified in `style-revision-v2.md`.

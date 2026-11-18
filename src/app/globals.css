@@ -22,13 +22,6 @@
   --color-dot-inactive: #cdcdcd;
 
   --font-sans: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
-
-  /* Temporary aliases keep the existing v1 components working through V2-11. */
-  --color-brand: var(--color-accent);
-  --color-brand-strong: var(--color-accent-strong);
-  --color-brand-wash: var(--color-accent-wash);
-  --font-heading: var(--font-sans);
-  --font-body: var(--font-sans);
   --shadow-window:
     0 0 0 0.5px rgb(0 0 0 / 20%), 0 12px 40px -4px rgb(0 0 0 / 18%),
     0 2px 8px rgb(0 0 0 / 8%);
@@ -62,7 +55,7 @@ body {
   margin: 0;
   background: var(--color-canvas);
   color: var(--color-ink);
-  font-family: var(--font-body), sans-serif;
+  font-family: var(--font-sans), sans-serif;
   font-size: 1rem;
   line-height: 1.6;
   -webkit-font-smoothing: antialiased;
@@ -74,7 +67,7 @@ h3,
 h4,
 h5,
 h6 {
-  font-family: var(--font-heading), sans-serif;
+  font-family: var(--font-sans), sans-serif;
   font-weight: 700;
   line-height: 1.1;
   letter-spacing: -0.025em;
@@ -105,25 +98,11 @@ h6 {
   }
 }
 
-/* Plain surface compatibility for components restyled in later V2 tasks. */
-.glass {
-  border: 1px solid var(--color-line);
-  background: var(--color-canvas);
-}
-
-.spotlight-glow {
-  display: none;
-}
 
 .window-surface {
   box-shadow: var(--shadow-window);
 }
 
-.hero-emoji-repel {
-  transform: translate3d(var(--repel-x, 0px), var(--repel-y, 0px), 0);
-  transition: transform 180ms ease-out;
-  will-change: transform;
-}
 
 .client-marquee {
   animation: client-marquee 32s linear infinite;
@@ -179,28 +158,6 @@ h6 {
     transition-duration: 0.01ms !important;
   }
 
-  .emoji-static-under-reduced-motion {
-    transform: none !important;
-    will-change: auto;
-  }
-
-  .emoji-static-under-reduced-motion {
-    opacity: 0.45 !important;
-  }
-
-  .hero-emoji-repel {
-    transform: none;
-    transition: none;
-    will-change: auto;
-  }
-
-  .client-marquee {
-    animation: none;
-    width: 100%;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 1rem 2rem;
-  }
 
   .client-marquee span[aria-hidden="true"] {
     display: none;

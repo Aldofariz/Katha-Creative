@@ -1,4 +1,4 @@
-﻿import Link from "next/link";
+import Link from "next/link";
 import { AppIcon } from "@/components/ui/app-icon";
 import { buttonClassNames } from "@/lib/button-styles";
 import type { Service } from "@/types";
@@ -13,7 +13,7 @@ export function ServiceHero({ service }: { service: Service }) {
           <span aria-current="page">{service.title}</span>
         </nav>
         <p className="text-accent mb-3 font-semibold">{service.tagline}</p>
-        <h1 className="font-heading text-display">{service.title}</h1>
+        <h1 className="font-sans text-display">{service.title}</h1>
         <p className="text-body-lg text-ink-soft mt-5 max-w-prose">{service.summary}</p>
         <Link href={`/contact?service=${service.slug}`} className={buttonClassNames("primary", "lg", "mt-8")}>
           Start a project

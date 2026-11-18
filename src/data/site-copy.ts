@@ -1,5 +1,3 @@
-import type { EmojiKey } from "@/data/emoji";
-
 export const siteCopy = {
   brand: "Katha Creative",
   tagline: "Brands with a story worth sharing.",
@@ -60,24 +58,20 @@ export const siteCopy = {
       {
         title: "Story first.",
         description: "Every campaign starts with something worth saying.",
-        emoji: "speech-balloon",
       },
       {
         title: "Numbers don't lie.",
         description: "We measure everything and share it honestly.",
-        emoji: "chart-increasing",
       },
       {
         title: "Make it fun.",
         description: "If we're not enjoying it, your audience won't either.",
-        emoji: "party-popper",
       },
       {
         title: "Say it plainly.",
         description: "No jargon, no mystery, no surprise invoices.",
-        emoji: "light-bulb",
       },
-    ] satisfies { title: string; description: string; emoji: EmojiKey }[],
+    ],
   },
   contact: {
     title: "Tell us what you're building.",

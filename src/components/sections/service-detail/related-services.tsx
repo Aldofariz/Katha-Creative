@@ -1,4 +1,4 @@
-﻿import Link from "next/link";
+import Link from "next/link";
 import { AppIcon } from "@/components/ui/app-icon";
 import { services } from "@/data/services";
 import type { Service } from "@/types";
@@ -11,7 +11,7 @@ export function RelatedServices({ service }: { service: Service }) {
   return (
     <section aria-labelledby="related-title" className="bg-surface">
       <div className="mx-auto w-full max-w-7xl px-5 py-12 md:px-8 lg:px-12">
-        <h2 id="related-title" className="font-heading text-h2 mb-7">Related services</h2>
+        <h2 id="related-title" className="font-sans text-h2 mb-7">Related services</h2>
         <ul className="border-line border-t md:grid md:grid-cols-3 md:divide-x md:divide-line">
           {relatedServices.map((related) => (
             <li key={related.slug} className="border-line border-b md:border-b-0 md:px-5 md:first:pl-0 md:last:pr-0">

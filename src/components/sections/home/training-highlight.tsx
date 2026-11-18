@@ -1,4 +1,4 @@
-﻿"use client";
+"use client";
 
 import Link from "next/link";
 import { useState } from "react";
@@ -23,7 +23,7 @@ export function TrainingHighlight() {
       <div className="mx-auto grid w-full max-w-7xl items-center gap-10 px-5 py-16 md:grid-cols-2 md:px-8 md:py-24 lg:px-12">
         <div>
           <p className="text-small text-accent mb-3 font-semibold">A little hands-on learning</p>
-          <h2 className="font-heading text-h2">Want to do this yourself? Learn with us.</h2>
+          <h2 className="font-sans text-h2">Want to do this yourself? Learn with us.</h2>
           <p className="text-body-lg text-ink-soft mt-5 max-w-prose">{training.summary}</p>
           <ul className="text-small text-ink-soft mt-6 space-y-2">
             <li>For career switchers, small business owners, and fresh graduates.</li>
@@ -35,7 +35,7 @@ export function TrainingHighlight() {
         </div>
         <div className="px-0 sm:px-8">
           <WindowCard title="Reminders" bodyClassName="p-5 sm:p-6">
-            <h3 className="font-heading text-h3 mb-2">Six modules, one portfolio</h3>
+            <h3 className="font-sans text-h3 mb-2">Six modules, one portfolio</h3>
             <p className="text-small text-ink-soft mb-4">Your training plan</p>
             <ol className="divide-line divide-y">
               {training.curriculum.map((item, index) => {
