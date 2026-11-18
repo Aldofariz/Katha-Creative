@@ -8,7 +8,7 @@ type EmojiImageProps = {
   height: number;
   alt?: string;
   className?: string;
-  priority?: boolean;
+  preload?: boolean;
 };
 
 export function EmojiImage({
@@ -17,7 +17,7 @@ export function EmojiImage({
   height,
   alt = "",
   className,
-  priority = false,
+  preload = false,
 }: EmojiImageProps) {
   const asset = emoji[emojiKey];
 
@@ -29,7 +29,7 @@ export function EmojiImage({
       height={height}
       className={cn("select-none", className)}
       draggable={false}
-      priority={priority}
+      preload={preload}
     />
   );
 }

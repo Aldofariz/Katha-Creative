@@ -40,30 +40,32 @@ Legend: `[ ]` not started, `[x]` done.
 
 ### T3. Core UI components
 
-- [ ] `Button` (primary, glass, ghost; md, lg)
-- [ ] `GlassCard` with cursor sheen (`Spotlight`)
-- [ ] `WindowCard` (title bar, dots, accent glow)
-- [ ] `Badge`
-- [ ] `ChatBubble` (sent, received, typing, reaction, timestamp)
-- [ ] `Accordion`
+- [x] `Button` (primary, glass, ghost; md, lg)
+- [x] `GlassCard` with cursor sheen (`Spotlight`)
+- [x] `WindowCard` (title bar, dots, accent glow)
+- [x] `Badge`
+- [x] `ChatBubble` (sent, received, typing, reaction, timestamp)
+- [x] `Accordion`
 
 **AC:** A temporary `/playground` route shows every variant and state. Keyboard and focus work. Remove or hide `/playground` before the final task.
 
 ### T4. Layout shell
 
-- [ ] `MenuBarNav` (menu items, Services dropdown, live clock, status icons, CTA, mobile sheet)
-- [ ] `Footer` (with demo note and emoji attribution)
-- [ ] Background blobs layer
+- [x] `MenuBarNav` (menu items, Services dropdown, live clock, status icons, CTA, mobile sheet)
+- [x] `Footer` (with demo note and emoji attribution)
+- [x] Background blobs layer
 
 **AC:** Nav is sticky and glass, dropdown is fully keyboard accessible, clock has no hydration warning, mobile sheet works at 375px.
 
 ### T5. Emoji backdrop and effects
 
-- [ ] `EmojiBackdrop` with presets, entrance, idle float, cursor parallax (`animation-spec.md`)
-- [ ] `ClickBurst`
-- [ ] Mobile and reduced-motion behavior; pause when tab hidden
+- [x] `EmojiBackdrop` with presets, entrance, idle float, cursor parallax (`animation-spec.md`)
+- [x] `ClickBurst`
+- [x] Mobile and reduced-motion behavior; pause when tab hidden
 
-**AC:** 16 emoji on desktop, 8 on mobile; smooth float and parallax; no layout shift; static under reduced motion; DevTools performance shows no long frames while moving the cursor.
+**AC:** 16 emoji on desktop, 8 on mobile; smooth float and parallax; no layout shift; static under reduced motion.
+
+- [ ] DevTools performance profile shows no long frames while moving the cursor.
 
 ---
 

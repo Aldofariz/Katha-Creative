@@ -103,8 +103,63 @@ h6 {
   background: rgb(255 255 255 / 72%);
 }
 
+.blob-drift {
+  animation: blob-drift 24s ease-in-out infinite alternate;
+}
+
+.blob-drift-slow {
+  animation-duration: 36s;
+}
+
+.blob-drift-reverse {
+  animation-direction: alternate-reverse;
+}
+
+@media (max-width: 767px) {
+  .emoji-parallax {
+    transform: none !important;
+  }
+}
+
+@keyframes blob-drift {
+  from {
+    transform: translate3d(0, 0, 0) rotate(0deg);
+  }
+
+  to {
+    transform: translate3d(28px, -22px, 0) rotate(8deg);
+  }
+}
+
 @media (prefers-reduced-motion: reduce) {
   html {
     scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    scroll-behavior: auto !important;
+    transition-duration: 0.01ms !important;
+  }
+
+  .blob-drift {
+    animation: none;
+  }
+
+  .emoji-parallax,
+  .emoji-static-under-reduced-motion {
+    transform: none !important;
+    will-change: auto;
+  }
+
+  .emoji-static-under-reduced-motion {
+    opacity: 0.45 !important;
+  }
+
+  .spotlight-glow {
+    display: none;
   }
 }
