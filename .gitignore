@@ -42,3 +42,6 @@ next-env.d.ts
 
 # document
 /roadmap.md
+/docs/roadmap.md
+/katha-docs/docs/roadmap.md
+/katha-docs/docs/style-revision-v2.md

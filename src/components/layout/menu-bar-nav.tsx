@@ -124,7 +124,7 @@ export function MenuBarNav() {
     pathname === "/services" || pathname.startsWith("/services/");
 
   return (
-    <header className="glass glass-strong border-line sticky top-0 z-50 border-b">
+    <header className="vibrancy border-line sticky top-0 z-50 border-b">
       <nav
         aria-label="Main navigation"
         className="mx-auto max-w-7xl px-3 sm:px-5"
@@ -200,7 +200,7 @@ export function MenuBarNav() {
                   id="services-menu"
                   role="menu"
                   aria-label="Services"
-                  className="glass-strong rounded-window absolute top-full left-0 z-[60] mt-2 grid w-64 origin-top gap-1 border border-white/70 p-2 shadow-xl"
+                  className="vibrancy rounded-window absolute top-full left-0 z-[60] mt-2 grid w-64 origin-top gap-1 border border-white/70 p-2 shadow-xl"
                 >
                   {servicesMenuLinks.map((item, index) => {
                     const active = pathname === item.href;

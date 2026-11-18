@@ -2,28 +2,34 @@
 
 @theme {
   --color-canvas: #ffffff;
-  --color-ink: #1b1535;
-  --color-ink-soft: #5b5675;
-  --color-line: rgb(27 21 53 / 8%);
-  --color-brand: #6d4aff;
-  --color-brand-strong: #5a38ea;
-  --color-brand-wash: #efeaff;
-  --color-pink: #ff7ab6;
-  --color-yellow: #ffd166;
-  --color-mint: #5eead4;
-  --color-sky: #60a5fa;
-  --color-coral: #ff8a65;
-  --color-lilac: #b79cff;
-  --color-lime: #a3e635;
-  --color-peach: #fdba74;
+  --color-surface: #f5f5f7;
+  --color-ink: #1d1d1f;
+  --color-ink-soft: #6e6e73;
+  --color-line: rgb(0 0 0 / 8%);
+  --color-line-strong: rgb(0 0 0 / 14%);
+  --color-accent: #0071e3;
+  --color-accent-hover: #0077ed;
+  --color-accent-strong: #0062c4;
+  --color-accent-wash: #e8f1fc;
+  --color-link: #0066cc;
   --color-dot-close: #ff5f57;
+  --color-dot-close-edge: #e0443e;
   --color-dot-min: #febc2e;
+  --color-dot-min-edge: #dea123;
   --color-dot-zoom: #28c840;
+  --color-dot-zoom-edge: #1aab29;
+  --color-dot-inactive: #cdcdcd;
 
-  --font-heading: var(--font-bricolage);
-  --font-body: var(--font-dm-sans);
+  --font-sans: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
 
-  --text-display: clamp(2.75rem, 6vw + 1rem, 5.5rem);
+  /* Temporary aliases keep the existing v1 components working through V2-11. */
+  --color-brand: var(--color-accent);
+  --color-brand-strong: var(--color-accent-strong);
+  --color-brand-wash: var(--color-accent-wash);
+  --font-heading: var(--font-sans);
+  --font-body: var(--font-sans);
+
+  --text-display: clamp(2.5rem, 5vw + 1rem, 4.75rem);
   --text-h1: clamp(2.25rem, 4vw + 1rem, 3.75rem);
   --text-h2: clamp(1.75rem, 2.5vw + 1rem, 2.75rem);
   --text-h3: clamp(1.25rem, 1.5vw, 1.5rem);
@@ -31,10 +37,10 @@
   --text-body: 1rem;
   --text-small: 0.875rem;
 
-  --radius-window: 20px;
-  --radius-chat: 22px;
-  --radius-input: 14px;
-  --radius-banner: 32px;
+  --radius-window: 12px;
+  --radius-chat: 18px;
+  --radius-input: 10px;
+  --radius-banner: 12px;
 }
 
 * {
@@ -66,53 +72,43 @@ h5,
 h6 {
   font-family: var(--font-heading), sans-serif;
   font-weight: 700;
-  line-height: 1.12;
-  letter-spacing: -0.02em;
+  line-height: 1.1;
+  letter-spacing: -0.025em;
 }
 
 :focus-visible {
-  outline: 2px solid var(--color-brand);
+  outline: 2px solid var(--color-accent);
   outline-offset: 2px;
 }
 
 ::selection {
-  background: var(--color-brand-wash);
+  background: var(--color-accent-wash);
   color: var(--color-ink);
 }
 
-.glass {
-  border: 1px solid rgb(255 255 255 / 70%);
-  background: rgb(255 255 255 / 55%);
-  -webkit-backdrop-filter: blur(24px) saturate(180%);
-  backdrop-filter: blur(24px) saturate(180%);
-  box-shadow:
-    inset 0 1px 0 rgb(255 255 255 / 90%),
-    0 0 0 1px rgb(27 21 53 / 4%),
-    0 10px 32px -8px rgb(27 21 53 / 12%);
+/* Translucency is reserved for native macOS chrome. */
+.vibrancy {
+  background: rgb(255 255 255 / 72%);
+  -webkit-backdrop-filter: blur(20px) saturate(180%);
+  backdrop-filter: blur(20px) saturate(180%);
 }
 
 @supports not (
   (backdrop-filter: blur(1px)) or (-webkit-backdrop-filter: blur(1px))
 ) {
-  .glass {
-    background: rgb(255 255 255 / 92%);
+  .vibrancy {
+    background: rgb(255 255 255 / 96%);
   }
 }
 
-.glass-strong {
-  background: rgb(255 255 255 / 72%);
+/* Plain surface compatibility for components restyled in later V2 tasks. */
+.glass {
+  border: 1px solid var(--color-line);
+  background: var(--color-canvas);
 }
 
-.blob-drift {
-  animation: blob-drift 24s ease-in-out infinite alternate;
-}
-
-.blob-drift-slow {
-  animation-duration: 36s;
-}
-
-.blob-drift-reverse {
-  animation-direction: alternate-reverse;
+.spotlight-glow {
+  display: none;
 }
 
 .hero-emoji-repel {
@@ -127,22 +123,6 @@ h6 {
 
 .client-marquee:hover {
   animation-play-state: paused;
-}
-
-@media (max-width: 767px) {
-  .emoji-parallax {
-    transform: none !important;
-  }
-}
-
-@keyframes blob-drift {
-  from {
-    transform: translate3d(0, 0, 0) rotate(0deg);
-  }
-
-  to {
-    transform: translate3d(28px, -22px, 0) rotate(8deg);
-  }
 }
 
 @keyframes client-marquee {
@@ -191,11 +171,6 @@ h6 {
     transition-duration: 0.01ms !important;
   }
 
-  .blob-drift {
-    animation: none;
-  }
-
-  .emoji-parallax,
   .emoji-static-under-reduced-motion {
     transform: none !important;
     will-change: auto;
@@ -203,10 +178,6 @@ h6 {
 
   .emoji-static-under-reduced-motion {
     opacity: 0.45 !important;
-  }
-
-  .spotlight-glow {
-    display: none;
   }
 
   .hero-emoji-repel {
