@@ -31,15 +31,12 @@ export function ServiceOverview({ service }: { service: Service }) {
         ) : (
           <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
             {service.included.map((item) => (
-              <WindowCard
-                key={item.title}
-                title={`${service.slug}.app`}
-              >
+              <WindowCard key={item.title} title={`${service.slug}.app`}>
                 <span
                   aria-hidden="true"
                   className="bg-mint/45 grid size-8 place-items-center rounded-full"
                 >
-                  ✓
+                  &#10003;
                 </span>
                 <h3 className="font-heading text-h3 mt-4">{item.title}</h3>
                 <p className="text-ink-soft mt-2">{item.description}</p>
@@ -70,9 +67,6 @@ export function ServiceOverview({ service }: { service: Service }) {
                 </div>
               ))}
             </dl>
-            <p className="text-small text-ink-soft mt-5">
-              This training program is fictional demo content.
-            </p>
           </WindowCard>
         </section>
       ) : null}
@@ -86,9 +80,7 @@ export function ServiceOverview({ service }: { service: Service }) {
         <ol className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
           {service.steps.map((step, index) => (
             <li key={step.title}>
-              <WindowCard
-                title={`step-${index + 1}.app`}
-              >
+              <WindowCard title={`step-${index + 1}.app`}>
                 <p className="text-small text-brand font-semibold">
                   Step {index + 1}
                 </p>

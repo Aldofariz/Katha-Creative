@@ -152,11 +152,8 @@ export function ContactFormFields({
         disabled={isSubmitting}
         className="bg-brand hover:bg-brand-strong focus-visible:outline-brand min-h-12 w-full rounded-full px-6 font-semibold text-white transition-colors focus-visible:outline-2 focus-visible:outline-offset-2 disabled:opacity-60"
       >
-        {isSubmitting ? "Sending…" : "Send your message"}
+        {isSubmitting ? "Sending&hellip;" : "Send your message"}
       </button>
-      <p className="text-small text-ink-soft text-center">
-        This is a demo form. Nothing is sent.
-      </p>
     </>
   );
 }

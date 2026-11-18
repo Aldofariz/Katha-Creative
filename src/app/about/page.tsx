@@ -9,7 +9,7 @@ import { EmojiImage } from "@/components/ui/emoji-image";
 export const metadata: Metadata = {
   title: "About",
   description:
-    "Meet the fictional Katha Creative team and learn the story behind the agency.",
+    "Meet the Katha Creative team and learn the story behind the agency.",
 };
 
 const values = [
@@ -47,8 +47,9 @@ export default function AboutPage() {
           believe good marketing starts with a good story.
         </p>
         <p className="text-small text-ink-soft mt-5 max-w-3xl">
-          “Katha” means “story” in Sanskrit, and it sounds a lot like “kata”,
-          the Indonesian word for “word”. Stories made of words: that&apos;s us.
+          &ldquo;Katha&rdquo; means &ldquo;story&rdquo; in Sanskrit, and it
+          sounds a lot like &ldquo;kata&rdquo;, the Indonesian word for
+          &ldquo;word&rdquo;. Stories made of words: that&apos;s us.
         </p>
       </header>
 

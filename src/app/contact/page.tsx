@@ -3,6 +3,7 @@ import { ContactForm } from "@/components/sections/contact/contact-form";
 import { EmojiImage } from "@/components/ui/emoji-image";
 import { WindowCard } from "@/components/ui/window-card";
 import { services } from "@/data/services";
+import { site } from "@/data/site";
 
 export const metadata: Metadata = {
   title: "Contact",
@@ -42,30 +43,23 @@ export default async function ContactPage({ searchParams }: ContactPageProps) {
         <aside className="relative space-y-5 py-2">
           <h2 className="font-heading text-h3">A note from the studio</h2>
           <p className="text-ink-soft">
-            We&apos;re a fictional agency based in Bandung, Indonesia. This demo
-            form doesn&apos;t send or store your message.
+            Tell us a little about your project and we will be in touch.
           </p>
           <dl className="glass rounded-window space-y-4 p-5">
             <div>
               <dt className="text-small text-ink-soft">Email</dt>
               <dd>
                 <a
-                  href="mailto:hello@katha.example"
+                  href={`mailto:${site.email}`}
                   className="focus-visible:outline-brand font-semibold underline-offset-4 hover:underline focus-visible:outline-2"
                 >
-                  hello@katha.example
+                  {site.email}
                 </a>
               </dd>
             </div>
             <div>
-              <dt className="text-small text-ink-soft">Location</dt>
-              <dd className="font-semibold">Bandung, Indonesia</dd>
-            </div>
-            <div>
               <dt className="text-small text-ink-soft">Response time</dt>
-              <dd className="font-semibold">
-                We reply within one business day.
-              </dd>
+              <dd className="font-semibold">{site.responseTime}</dd>
             </div>
           </dl>
           <span

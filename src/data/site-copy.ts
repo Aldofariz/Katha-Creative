@@ -3,11 +3,6 @@ import type { EmojiKey } from "@/data/emoji";
 export const siteCopy = {
   brand: "Katha Creative",
   tagline: "Brands with a story worth sharing.",
-  footerNote:
-    "Katha Creative is a fictional agency. This site is a demo project.",
-  contactEmail: "hello@katha.example",
-  location: "Bandung, Indonesia",
-  responseTime: "We reply within one business day.",
   home: {
     heroTitle: "Brands with a story worth sharing.",
     heroSubline:
@@ -89,7 +84,6 @@ export const siteCopy = {
     supportLine: "Share a few details and we'll reply within one business day.",
     windowTitle: "New message",
     successReply: "got it! we'll reply within one business day.",
-    demoNote: "This is a demo form. Nothing is sent.",
     validation: {
       name: "Enter your name (2 to 80 characters).",
       email: "Enter a valid email address.",
