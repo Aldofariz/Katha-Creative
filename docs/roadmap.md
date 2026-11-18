@@ -73,27 +73,27 @@ Legend: `[ ]` not started, `[x]` done.
 
 ### T6. Home: hero
 
-- [ ] Hero copy, buttons, trust line
-- [ ] Playground: chat bubbles sequence, large emoji, repel, click burst
+- [x] Hero copy, buttons, trust line
+- [x] Playground: chat bubbles sequence, large emoji, repel, click burst
 
 **AC:** Load sequence matches `animation-spec.md`; clicking emoji bursts; keyboard can pop emoji; mobile layout stacks correctly.
 
 ### T7. Home: stats, services grid
 
-- [ ] Stats strip with count-up and client marquee
-- [ ] Services grid with 8 `WindowCard`s (hover sheen, emoji wiggle, optional tilt), Training card distinguished
+- [x] Stats strip with count-up and client marquee
+- [x] Services grid with 8 `WindowCard`s (hover sheen, emoji wiggle, optional tilt), Training card distinguished
 
 **AC:** Cards link to `/services/<slug>`; responsive 1/2/4 columns; count-up runs once.
 
 ### T8. Home: How we work (scroll storytelling)
 
-- [ ] Sticky stage with 4 scroll-driven stages (`animation-spec.md`, `content.md`)
+- [x] Sticky stage with 4 scroll-driven stages (`animation-spec.md`, `content.md`)
 
 **AC:** Stages advance smoothly with scroll, no jank; reading order correct; reduced motion shows all stages stacked.
 
 ### T9. Home: training highlight, testimonials, FAQ, CTA banner
 
-- [ ] `TrainingHighlight`, `Testimonials` (carousel on mobile), `FaqSection`, `CtaBanner` (reusable)
+- [x] `TrainingHighlight`, `Testimonials` (carousel on mobile), `FaqSection`, `CtaBanner` (reusable)
 
 **AC:** All content from `content.md`; FAQ one-open-at-a-time with correct ARIA; Home page complete and responsive.
 

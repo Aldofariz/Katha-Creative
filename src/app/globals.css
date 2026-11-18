@@ -115,6 +115,20 @@ h6 {
   animation-direction: alternate-reverse;
 }
 
+.hero-emoji-repel {
+  transform: translate3d(var(--repel-x, 0px), var(--repel-y, 0px), 0);
+  transition: transform 180ms ease-out;
+  will-change: transform;
+}
+
+.client-marquee {
+  animation: client-marquee 32s linear infinite;
+}
+
+.client-marquee:hover {
+  animation-play-state: paused;
+}
+
 @media (max-width: 767px) {
   .emoji-parallax {
     transform: none !important;
@@ -128,6 +142,38 @@ h6 {
 
   to {
     transform: translate3d(28px, -22px, 0) rotate(8deg);
+  }
+}
+
+@keyframes client-marquee {
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .how-scroll-track {
+    height: auto;
+  }
+
+  .how-sticky {
+    position: static;
+    display: block;
+    min-height: 0;
+  }
+
+  .how-stage-frame {
+    display: flex;
+    min-height: 0;
+    flex-direction: column;
+    gap: 2rem;
+  }
+
+  .how-stage-view {
+    position: relative !important;
+    inset: auto !important;
+    opacity: 1 !important;
+    transform: none !important;
   }
 }
 
@@ -160,6 +206,24 @@ h6 {
   }
 
   .spotlight-glow {
+    display: none;
+  }
+
+  .hero-emoji-repel {
+    transform: none;
+    transition: none;
+    will-change: auto;
+  }
+
+  .client-marquee {
+    animation: none;
+    width: 100%;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1rem 2rem;
+  }
+
+  .client-marquee span[aria-hidden="true"] {
     display: none;
   }
 }

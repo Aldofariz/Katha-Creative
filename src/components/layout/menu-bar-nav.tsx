@@ -6,7 +6,7 @@ import { usePathname } from "next/navigation";
 import { BatteryFull, ChevronDown, Menu, Wifi, X } from "lucide-react";
 import { services } from "@/data/services";
 import { EmojiImage } from "@/components/ui/emoji-image";
-import { buttonClassNames } from "@/components/ui/button";
+import { buttonClassNames } from "@/lib/button-styles";
 import { cn } from "@/lib/cn";
 
 function LiveClock() {
