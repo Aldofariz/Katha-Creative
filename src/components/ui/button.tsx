@@ -42,7 +42,6 @@ export function Button({
         buttonClassNames(variant, size, className),
         "disabled:pointer-events-none disabled:opacity-50",
       )}
-      whileHover={disabled ? undefined : { y: -1 }}
       whileTap={disabled ? undefined : { scale: 0.98 }}
       {...props}
     >

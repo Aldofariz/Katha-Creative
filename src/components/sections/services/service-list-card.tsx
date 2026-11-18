@@ -20,7 +20,6 @@ export function ServiceListCard({ service }: { service: Service }) {
   return (
     <WindowCard
       title={service.name}
-      accent={service.accent}
       className={training ? "border-brand/20 bg-brand-wash/30" : ""}
       bodyClassName="flex flex-col gap-5 p-5 sm:flex-row sm:items-center sm:p-6"
     >

@@ -12,6 +12,7 @@
   --color-accent-strong: #0062c4;
   --color-accent-wash: #e8f1fc;
   --color-link: #0066cc;
+  --color-chat-received: #e9e9eb;
   --color-dot-close: #ff5f57;
   --color-dot-close-edge: #e0443e;
   --color-dot-min: #febc2e;
@@ -28,6 +29,9 @@
   --color-brand-wash: var(--color-accent-wash);
   --font-heading: var(--font-sans);
   --font-body: var(--font-sans);
+  --shadow-window:
+    0 0 0 0.5px rgb(0 0 0 / 20%), 0 12px 40px -4px rgb(0 0 0 / 18%),
+    0 2px 8px rgb(0 0 0 / 8%);
 
   --text-display: clamp(2.5rem, 5vw + 1rem, 4.75rem);
   --text-h1: clamp(2.25rem, 4vw + 1rem, 3.75rem);
@@ -109,6 +113,10 @@ h6 {
 
 .spotlight-glow {
   display: none;
+}
+
+.window-surface {
+  box-shadow: var(--shadow-window);
 }
 
 .hero-emoji-repel {

@@ -26,7 +26,6 @@ export function RelatedServices({ service }: { service: Service }) {
           >
             <WindowCard
               title={related.name}
-              accent={related.accent}
               className="h-full transition-transform hover:-translate-y-1"
             >
               <EmojiImage emojiKey={related.emoji} width={52} height={52} />

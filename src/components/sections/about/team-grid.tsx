@@ -47,7 +47,6 @@ export function TeamGrid() {
             >
               <WindowCard
                 title={`${member.name.toLowerCase().split(" ")[0]}.profile`}
-                accent={member.accent}
               >
                 <div className="flex items-center gap-4">
                   <span

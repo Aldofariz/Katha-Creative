@@ -19,7 +19,6 @@ export function ServiceOverview({ service }: { service: Service }) {
               <WindowCard
                 key={item.module}
                 title={`module-${String(index + 1).padStart(2, "0")}.app`}
-                accent={service.accent}
               >
                 <p className="text-small text-brand font-semibold">
                   Module {index + 1}
@@ -35,7 +34,6 @@ export function ServiceOverview({ service }: { service: Service }) {
               <WindowCard
                 key={item.title}
                 title={`${service.slug}.app`}
-                accent={service.accent}
               >
                 <span
                   aria-hidden="true"
@@ -55,7 +53,7 @@ export function ServiceOverview({ service }: { service: Service }) {
           aria-labelledby="program-details-title"
           className="mx-auto w-full max-w-7xl px-5 py-8 md:px-8 lg:px-12"
         >
-          <WindowCard title="program-details.app" accent={service.accent}>
+          <WindowCard title="program-details.app">
             <h2
               id="program-details-title"
               className="font-heading text-h2 mb-6"
@@ -90,7 +88,6 @@ export function ServiceOverview({ service }: { service: Service }) {
             <li key={step.title}>
               <WindowCard
                 title={`step-${index + 1}.app`}
-                accent={service.accent}
               >
                 <p className="text-small text-brand font-semibold">
                   Step {index + 1}
@@ -106,7 +103,7 @@ export function ServiceOverview({ service }: { service: Service }) {
         aria-labelledby="fit-title"
         className="mx-auto w-full max-w-7xl px-5 py-8 md:px-8 lg:px-12"
       >
-        <WindowCard title="a-good-fit.app" accent={service.accent}>
+        <WindowCard title="a-good-fit.app">
           <h2 id="fit-title" className="font-heading text-h2 mb-5">
             Who it&apos;s for
           </h2>

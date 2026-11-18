@@ -2,7 +2,6 @@
 
 import { useId, useState } from "react";
 import { motion } from "motion/react";
-import { ChevronDown } from "lucide-react";
 import type { FaqItem } from "@/types";
 import { cn } from "@/lib/cn";
 import { useReducedMotionSafe } from "@/hooks/use-reduced-motion-safe";
@@ -18,34 +17,32 @@ export function Accordion({ items, className }: AccordionProps) {
   const isReducedMotion = useReducedMotionSafe();
 
   return (
-    <div className={cn("space-y-3", className)}>
+    <div className={cn("border-line divide-line divide-y border-y", className)}>
       {items.map((item, index) => {
         const isOpen = openIndex === index;
         const triggerId = `${id}-trigger-${index}`;
         const panelId = `${id}-panel-${index}`;
 
         return (
-          <div
-            key={item.question}
-            className="glass rounded-window overflow-hidden"
-          >
+          <div key={item.question}>
             <h3>
               <button
                 id={triggerId}
                 type="button"
                 aria-expanded={isOpen}
                 aria-controls={panelId}
-                className="text-ink focus-visible:outline-brand flex min-h-14 w-full items-center justify-between gap-4 px-5 py-4 text-left font-semibold focus-visible:outline-2 focus-visible:outline-offset-[-2px]"
+                className="text-ink focus-visible:outline-accent flex min-h-14 w-full items-center justify-between gap-4 py-4 text-left font-semibold focus-visible:outline-2 focus-visible:outline-offset-[-2px]"
                 onClick={() => setOpenIndex(isOpen ? null : index)}
               >
                 {item.question}
-                <ChevronDown
+                <motion.span
                   aria-hidden="true"
-                  className={cn(
-                    "text-ink-soft size-5 shrink-0 transition-transform duration-200",
-                    isOpen && "rotate-180",
-                  )}
-                />
+                  className="text-ink-soft relative size-3 shrink-0"
+                  animate={{ rotate: isOpen ? 90 : 0 }}
+                  transition={isReducedMotion ? { duration: 0 } : { duration: 0.15 }}
+                >
+                  <span className="absolute top-1/2 left-1/2 size-0 -translate-x-1/3 -translate-y-1/2 border-y-[4px] border-y-transparent border-l-[5px] border-l-current" />
+                </motion.span>
               </button>
             </h3>
             <motion.div
@@ -63,7 +60,7 @@ export function Accordion({ items, className }: AccordionProps) {
               }
               className="overflow-hidden"
             >
-              <p className="text-ink-soft max-w-prose px-5 pb-5">
+              <p className="text-ink-soft max-w-prose pb-5">
                 {item.answer}
               </p>
             </motion.div>

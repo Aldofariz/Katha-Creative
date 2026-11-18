@@ -32,7 +32,6 @@ export function Testimonials() {
             <WindowCard
               key={testimonial.name}
               title={`${testimonial.company.toLowerCase().replaceAll(" ", "-")}.note`}
-              accent={testimonial.accent}
               className="snap-start"
             >
               <div className="flex items-center gap-3">

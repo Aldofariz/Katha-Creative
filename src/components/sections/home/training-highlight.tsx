@@ -44,7 +44,7 @@ export function TrainingHighlight() {
         >
           <EmojiImage emojiKey="graduation-cap" width={96} height={96} />
         </span>
-        <WindowCard title="your-curriculum.app" accent="yellow">
+        <WindowCard title="your-curriculum.app">
           <h3 className="font-heading text-h3 mb-5">
             Six modules, one portfolio
           </h3>

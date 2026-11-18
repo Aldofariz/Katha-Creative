@@ -1,23 +1,16 @@
 import type { ReactNode } from "react";
-import type { AccentColor } from "@/types";
 import { cn } from "@/lib/cn";
-import { GlassCard } from "@/components/ui/glass-card";
-
-const accentGlow: Record<AccentColor, string> = {
-  pink: "bg-pink/45",
-  yellow: "bg-yellow/45",
-  mint: "bg-mint/45",
-  sky: "bg-sky/45",
-  coral: "bg-coral/45",
-  lilac: "bg-lilac/45",
-  lime: "bg-lime/45",
-  peach: "bg-peach/45",
-};
+import { TrafficLights } from "@/components/ui/traffic-lights";
 
 type WindowCardProps = {
   title: string;
   children: ReactNode;
-  accent?: AccentColor;
+  active?: boolean;
+  onClose?: () => void;
+  onMinimize?: () => void;
+  onZoom?: () => void;
+  sidebar?: ReactNode;
+  toolbar?: ReactNode;
   className?: string;
   bodyClassName?: string;
 };
@@ -25,32 +18,54 @@ type WindowCardProps = {
 export function WindowCard({
   title,
   children,
-  accent,
+  active = true,
+  onClose,
+  onMinimize,
+  onZoom,
+  sidebar,
+  toolbar,
   className,
   bodyClassName,
 }: WindowCardProps) {
   return (
-    <GlassCard className={cn("rounded-window", className)}>
-      {accent ? (
-        <span
-          aria-hidden="true"
-          className={cn(
-            "pointer-events-none absolute -top-8 -right-8 z-0 size-36 rounded-full opacity-50 blur-3xl",
-            accentGlow[accent],
-          )}
+    <section
+      className={cn(
+        "window-surface relative flex min-w-0 flex-col overflow-hidden rounded-window",
+        className,
+      )}
+    >
+      <header
+        className={cn(
+          "vibrancy border-line-strong relative flex shrink-0 items-center border-b px-2",
+          toolbar ? "h-[52px]" : "h-7",
+        )}
+      >
+        <TrafficLights
+          active={active}
+          onClose={onClose}
+          onMinimize={onMinimize}
+          onZoom={onZoom}
         />
-      ) : null}
-      <div className="border-line relative z-[1] flex h-10 items-center border-b px-4">
-        <div aria-hidden="true" className="flex gap-1.5">
-          <span className="bg-dot-close size-3 rounded-full" />
-          <span className="bg-dot-min size-3 rounded-full" />
-          <span className="bg-dot-zoom size-3 rounded-full" />
-        </div>
-        <span className="text-small text-ink-soft absolute left-1/2 max-w-[60%] -translate-x-1/2 truncate">
+        <span
+          className={cn(
+            "absolute left-1/2 max-w-[55%] -translate-x-1/2 truncate text-[13px] font-semibold",
+            active ? "text-ink/85" : "text-ink/40",
+          )}
+        >
           {title}
         </span>
+        {toolbar ? (
+          <div className="ml-auto flex min-w-0 items-center gap-2">{toolbar}</div>
+        ) : null}
+      </header>
+      <div className="flex min-h-0 flex-1">
+        {sidebar ? (
+          <aside className="border-line-strong min-w-40 border-r bg-surface p-3">
+            {sidebar}
+          </aside>
+        ) : null}
+        <div className={cn("min-w-0 flex-1 p-6", bodyClassName)}>{children}</div>
       </div>
-      <div className={cn("relative z-[1] p-6", bodyClassName)}>{children}</div>
-    </GlassCard>
+    </section>
   );
 }

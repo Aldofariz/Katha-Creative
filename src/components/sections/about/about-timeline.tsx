@@ -6,8 +6,6 @@ import { WindowCard } from "@/components/ui/window-card";
 import { timeline } from "@/data/timeline";
 import { useReducedMotionSafe } from "@/hooks/use-reduced-motion-safe";
 
-const timelineAccents = ["pink", "sky", "coral", "yellow", "mint"] as const;
-
 export function AboutTimeline() {
   const sectionRef = useRef<HTMLElement>(null);
   const reducedMotion = useReducedMotionSafe();
@@ -38,7 +36,6 @@ export function AboutTimeline() {
         </span>
         <ol className="space-y-6">
           {timeline.map((item, index) => {
-            const accent = timelineAccents[index] ?? "pink";
             const leftSide = index % 2 === 0;
             return (
               <li
@@ -55,7 +52,7 @@ export function AboutTimeline() {
                   viewport={{ once: true, amount: 0.3 }}
                   transition={{ duration: reducedMotion ? 0 : 0.45 }}
                 >
-                  <WindowCard title={`${item.year}.chapter`} accent={accent}>
+                  <WindowCard title={`${item.year}.chapter`}>
                     <p className="text-small text-brand font-semibold">
                       {item.year}
                     </p>

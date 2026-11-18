@@ -32,9 +32,8 @@ export function ServiceCard({ service }: { service: Service }) {
     >
       <WindowCard
         title={service.name}
-        accent={service.accent}
         className={`h-full transition-transform duration-200 group-hover:-translate-y-1 ${isTraining ? "border-brand/20 bg-brand-wash/35" : ""}`}
-        bodyClassName="flex h-[calc(100%-40px)] flex-col p-5 sm:p-6"
+        bodyClassName="flex flex-col p-5 sm:p-6"
       >
         <div className="flex items-start justify-between gap-3">
           <span
@@ -49,7 +48,7 @@ export function ServiceCard({ service }: { service: Service }) {
               <EmojiImage emojiKey={service.emoji} width={42} height={42} />
             </motion.span>
           </span>
-          {isTraining ? <Badge variant="brand">Learn with us</Badge> : null}
+          {isTraining ? <Badge>Learn with us</Badge> : null}
         </div>
         <h3 className="font-heading text-h3 mt-5">{service.title}</h3>
         <p className="text-small text-ink-soft mt-2 line-clamp-2 min-h-11">
