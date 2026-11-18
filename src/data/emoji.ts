@@ -1,6 +1,7 @@
 export type EmojiKey =
   | "rocket"
   | "sparkles"
+  | "sweat-smile"
   | "megaphone"
   | "magnifier"
   | "mobile-phone"
@@ -26,6 +27,10 @@ export type EmojiKey =
 export const emoji: Record<EmojiKey, { src: string; label: string }> = {
   rocket: { src: "/emoji/rocket.webp", label: "rocket" },
   sparkles: { src: "/emoji/sparkles.webp", label: "sparkles" },
+  "sweat-smile": {
+    src: "/emoji/sweat-smile.webp",
+    label: "grinning face with sweat",
+  },
   megaphone: { src: "/emoji/megaphone.webp", label: "megaphone" },
   magnifier: { src: "/emoji/magnifier.webp", label: "magnifying glass" },
   "mobile-phone": { src: "/emoji/mobile-phone.webp", label: "mobile phone" },

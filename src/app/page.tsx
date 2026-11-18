@@ -1,5 +1,5 @@
 import { Hero } from "@/components/sections/home/hero";
-import { ServicesGrid } from "@/components/sections/home/services-grid";
+import { ServicesDock } from "@/components/sections/home/services-dock";
 import { StatsStrip } from "@/components/sections/home/stats-strip";
 import { WorkStages } from "@/components/sections/home/work-stages";
 import { TrainingHighlight } from "@/components/sections/home/training-highlight";
@@ -12,7 +12,7 @@ export default function Home() {
     <>
       <Hero />
       <StatsStrip />
-      <ServicesGrid />
+      <ServicesDock />
       <WorkStages />
       <TrainingHighlight />
       <Testimonials />

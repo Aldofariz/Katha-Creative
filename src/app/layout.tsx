@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
+import { Caveat, Inter } from "next/font/google";
 import { MotionConfig } from "motion/react";
 import type { ReactNode } from "react";
 import { Footer } from "@/components/layout/footer";
@@ -8,6 +8,10 @@ import "./globals.css";
 
 const inter = Inter({
   variable: "--font-inter",
+  subsets: ["latin"],
+});
+const caveat = Caveat({
+  variable: "--font-caveat",
   subsets: ["latin"],
 });
 
@@ -21,7 +25,7 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: { children: ReactNode }) {
   return (
-    <html lang="en" className={`${inter.variable} h-full`}>
+    <html lang="en" className={`${inter.variable} ${caveat.variable} h-full`}>
       <body className="flex min-h-full flex-col">
         <MotionConfig reducedMotion="user">
           <MenuBarNav />

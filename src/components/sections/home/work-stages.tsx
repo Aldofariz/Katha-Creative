@@ -3,6 +3,7 @@
 import { motion, useScroll, useTransform } from "motion/react";
 import type { MotionValue } from "motion/react";
 import { useRef } from "react";
+import { Check } from "lucide-react";
 import { ChatBubble } from "@/components/ui/chat-bubble";
 import { WindowCard } from "@/components/ui/window-card";
 import { useReducedMotionSafe } from "@/hooks/use-reduced-motion-safe";
@@ -70,7 +71,7 @@ function StageWindow({ index }: { index: number }) {
             .map((item) => (
               <div
                 key={item}
-                className="rounded-input bg-brand-wash px-2 py-4 text-center text-xs font-semibold"
+                className="border-line border-b px-2 py-4 text-center text-sm font-medium"
               >
                 {item}
               </div>
@@ -80,12 +81,7 @@ function StageWindow({ index }: { index: number }) {
         <ul className="space-y-3">
           {stage.detail.map((item) => (
             <li key={item} className="flex items-center gap-3 text-sm">
-              <span
-                aria-hidden="true"
-                className="bg-mint/40 grid size-5 place-items-center rounded-full text-xs"
-              >
-                ✓
-              </span>
+              <Check aria-hidden="true" className="text-accent size-4 shrink-0" />
               {item}
             </li>
           ))}
@@ -95,20 +91,18 @@ function StageWindow({ index }: { index: number }) {
           {[35, 50, 44, 72, 88].map((height, bar) => (
             <span
               key={bar}
-              className="bg-brand/70 flex-1 rounded-t-md"
+              className="bg-accent flex-1"
               style={{ height: `${height}%` }}
             />
           ))}
         </div>
       ) : (
-        <dl className="grid grid-cols-[auto_1fr] gap-x-4 gap-y-3 text-sm">
-          {stage.detail.map((item, itemIndex) => (
-            <span
-              key={item}
-              className={itemIndex % 2 === 0 ? "text-ink-soft" : "font-medium"}
-            >
-              {item}
-            </span>
+        <dl className="divide-line divide-y text-sm">
+          {stage.detail.filter((_, itemIndex) => itemIndex % 2 === 0).map((label, itemIndex) => (
+            <div key={label} className="grid grid-cols-[auto_1fr] gap-4 py-3">
+              <dt className="text-ink-soft">{label}</dt>
+              <dd className="text-right font-medium">{stage.detail[itemIndex * 2 + 1]}</dd>
+            </div>
           ))}
         </dl>
       )}
@@ -127,8 +121,13 @@ function WorkStage({
   progress: MotionValue<number>;
 }) {
   const opacity = useTransform(progress, (value) => {
-    const position = Math.min(value * stages.length, stages.length - 1);
-    return Math.max(0, 1 - Math.abs(position - index));
+    const position = Math.min(value * stages.length, stages.length);
+    const fade = 0.16;
+    const start = index;
+    const end = index + 1;
+    if (position < start) return Math.max(0, 1 - (start - position) / fade);
+    if (index === stages.length - 1 || position <= end - fade) return 1;
+    return Math.max(0, (end - position) / fade);
   });
   const y = useTransform(opacity, [0, 1], [14, 0]);
   const stage = stages[index];
@@ -139,11 +138,16 @@ function WorkStage({
       className="how-stage-view absolute inset-0 grid items-center gap-7 md:grid-cols-2 md:gap-12"
       style={{ opacity, y }}
     >
-      <div>
-        <p className="text-small text-brand mb-3 font-semibold">
-          {String(index + 1).padStart(2, "0")} / 04
-        </p>
-        <h3 className="font-heading text-h2 mb-6">{stage.name}</h3>
+      <WindowCard title="Messages" className="h-full" bodyClassName="p-5 sm:p-6">
+        <ol aria-label="Work stages" className="mb-6 space-y-2">
+          {stages.map((item, itemIndex) => (
+            <li key={item.name} className={`flex items-center gap-3 text-sm ${itemIndex === index ? "text-ink font-semibold" : "text-ink-soft"}`}>
+              <span aria-hidden="true" className={`h-4 w-0.5 ${itemIndex === index ? "bg-accent" : "bg-transparent"}`} />
+              <span>{item.name}</span>
+              {itemIndex === index ? <span className="sr-only">Current stage</span> : null}
+            </li>
+          ))}
+        </ol>
         <div className="flex flex-col gap-4">
           <ChatBubble variant="received">{stage.received}</ChatBubble>
           <ChatBubble variant="sent">{stage.sent}</ChatBubble>
@@ -151,7 +155,7 @@ function WorkStage({
         {index === 3 ? (
           <p className="text-small text-ink-soft mt-3 text-right">Delivered</p>
         ) : null}
-      </div>
+      </WindowCard>
       <StageWindow index={index} />
     </motion.article>
   );
@@ -169,7 +173,7 @@ export function WorkStages() {
   return (
     <section
       ref={sectionRef}
-      className="how-scroll-track relative h-[200svh] md:h-[300svh]"
+      className="how-scroll-track relative h-[400svh] md:h-[520svh]"
     >
       <div className="mx-auto max-w-7xl px-5 pt-16 md:px-8 md:pt-24 lg:px-12">
         <div className="mb-8 max-w-2xl">
@@ -179,7 +183,7 @@ export function WorkStages() {
         </div>
       </div>
       <div className="how-sticky sticky top-20 mx-auto flex min-h-[min(680px,calc(100svh-100px))] max-w-7xl items-center px-5 pb-12 md:top-24 md:px-8 lg:px-12">
-        <div className="rounded-window border-line relative w-full border bg-white/45 p-5 sm:p-8 md:p-10">
+        <div className="relative w-full">
           <div
             aria-hidden="true"
             className="bg-line absolute top-8 bottom-8 left-2.5 w-px md:left-4"
