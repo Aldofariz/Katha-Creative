@@ -10,27 +10,27 @@ Legend: `[ ]` not started, `[x]` done.
 
 ### T0. Project setup
 
-- [ ] Create the Next.js app (TypeScript, App Router, Tailwind, ESLint, `src/` directory, import alias `@/*`) with npm (`npx create-next-app@latest`)
-- [ ] Install allowed dependencies (`architecture.md`)
-- [ ] Configure Prettier (with Tailwind plugin), strict TS, scripts
-- [ ] Copy these docs into `/docs` and `AGENTS.md` into the repo root
+- [x] Create the Next.js app (TypeScript, App Router, Tailwind, ESLint, `src/` directory, import alias `@/*`) with npm (`npx create-next-app@latest`)
+- [x] Install allowed dependencies (`architecture.md`)
+- [x] Configure Prettier (with Tailwind plugin), strict TS, scripts
+- [x] Copy these docs into `/docs` and `AGENTS.md` into the repo root
 
 **AC:** `npm run dev` runs; `npm run lint`, `npm run typecheck`, `npm run build` pass on the blank app.
 
 ### T1. Design tokens, fonts, globals
 
-- [ ] `globals.css`: Tailwind import, `@theme` tokens (`design-system.md`), `.glass`, `.glass-strong`, base typography, focus ring, selection color
-- [ ] `layout.tsx`: Bricolage Grotesque and DM Sans via `next/font`, `<MotionConfig reducedMotion="user">`, base metadata
-- [ ] `lib/cn.ts`, `lib/motion.ts`
+- [x] `globals.css`: Tailwind import, `@theme` tokens (`design-system.md`), `.glass`, `.glass-strong`, base typography, focus ring, selection color
+- [x] `layout.tsx`: Bricolage Grotesque and DM Sans via `next/font`, `<MotionConfig reducedMotion="user">`, base metadata
+- [x] `lib/cn.ts`, `lib/motion.ts`
 
 **AC:** A test page shows both fonts, all color tokens, and a glass panel over a colored blob rendering correctly.
 
 ### T2. Emoji assets and data layer
 
-- [ ] Download the required Fluent Emoji 3D assets, convert to WebP, add license file (`architecture.md`)
-- [ ] `src/data/emoji.ts` manifest with `EmojiKey`
-- [ ] `src/types/index.ts`; all data files from `content.md` (`services`, `testimonials`, `team`, `faqs`, `stats`, `timeline`)
-- [ ] `EmojiImage` component (wraps `next/image`)
+- [x] Download the required Fluent Emoji 3D assets, convert to WebP, add license file (`architecture.md`)
+- [x] `src/data/emoji.ts` manifest with `EmojiKey`
+- [x] `src/types/index.ts`; all data files from `content.md` (`services`, `testimonials`, `team`, `faqs`, `stats`, `timeline`)
+- [x] `EmojiImage` component (wraps `next/image`)
 
 **AC:** A temporary page renders every emoji in the manifest with no broken images; data files typecheck.
 

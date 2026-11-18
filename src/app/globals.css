@@ -1,26 +1,110 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
+@theme {
+  --color-canvas: #ffffff;
+  --color-ink: #1b1535;
+  --color-ink-soft: #5b5675;
+  --color-line: rgb(27 21 53 / 8%);
+  --color-brand: #6d4aff;
+  --color-brand-strong: #5a38ea;
+  --color-brand-wash: #efeaff;
+  --color-pink: #ff7ab6;
+  --color-yellow: #ffd166;
+  --color-mint: #5eead4;
+  --color-sky: #60a5fa;
+  --color-coral: #ff8a65;
+  --color-lilac: #b79cff;
+  --color-lime: #a3e635;
+  --color-peach: #fdba74;
+  --color-dot-close: #ff5f57;
+  --color-dot-min: #febc2e;
+  --color-dot-zoom: #28c840;
+
+  --font-heading: var(--font-bricolage);
+  --font-body: var(--font-dm-sans);
+
+  --text-display: clamp(2.75rem, 6vw + 1rem, 5.5rem);
+  --text-h1: clamp(2.25rem, 4vw + 1rem, 3.75rem);
+  --text-h2: clamp(1.75rem, 2.5vw + 1rem, 2.75rem);
+  --text-h3: clamp(1.25rem, 1.5vw, 1.5rem);
+  --text-body-lg: 1.125rem;
+  --text-body: 1rem;
+  --text-small: 0.875rem;
+
+  --radius-window: 20px;
+  --radius-chat: 22px;
+  --radius-input: 14px;
+  --radius-banner: 32px;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+* {
+  box-sizing: border-box;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+html {
+  min-height: 100%;
+  background: var(--color-canvas);
+  scroll-behavior: smooth;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  min-height: 100vh;
+  margin: 0;
+  background: var(--color-canvas);
+  color: var(--color-ink);
+  font-family: var(--font-body), sans-serif;
+  font-size: 1rem;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: var(--font-heading), sans-serif;
+  font-weight: 700;
+  line-height: 1.12;
+  letter-spacing: -0.02em;
+}
+
+:focus-visible {
+  outline: 2px solid var(--color-brand);
+  outline-offset: 2px;
+}
+
+::selection {
+  background: var(--color-brand-wash);
+  color: var(--color-ink);
+}
+
+.glass {
+  border: 1px solid rgb(255 255 255 / 70%);
+  background: rgb(255 255 255 / 55%);
+  -webkit-backdrop-filter: blur(24px) saturate(180%);
+  backdrop-filter: blur(24px) saturate(180%);
+  box-shadow:
+    inset 0 1px 0 rgb(255 255 255 / 90%),
+    0 0 0 1px rgb(27 21 53 / 4%),
+    0 10px 32px -8px rgb(27 21 53 / 12%);
+}
+
+@supports not (
+  (backdrop-filter: blur(1px)) or (-webkit-backdrop-filter: blur(1px))
+) {
+  .glass {
+    background: rgb(255 255 255 / 92%);
+  }
+}
+
+.glass-strong {
+  background: rgb(255 255 255 / 72%);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
 }
