@@ -99,31 +99,33 @@ Legend: `[ ]` not started, `[x]` done.
 
 ### T10. Services index
 
-- [ ] Header, four category groups, "not sure" block, CTA banner
+- [x] Header, four category groups, "not sure" block, CTA banner
 
 **AC:** All 8 services appear exactly once under the right category.
 
 ### T11. Service detail template
 
-- [ ] `generateStaticParams`, metadata, `notFound`
-- [ ] Hero, Included (or Curriculum + Program details for training), Process, FitFor, FAQ, Related, CTA
-- [ ] Accent-driven blobs and `servicePreset`
+- [x] `generateStaticParams`, metadata, `notFound`
+- [x] Hero, Included (or Curriculum + Program details for training), Process, FitFor, FAQ, Related, CTA
+- [x] Accent-driven blobs and `servicePreset`
 
 **AC:** All 8 pages build statically; each uses its own accent and emoji; Training page shows curriculum and program details; CTA links include `?service=<slug>`.
 
 ### T12. About
 
-- [ ] Header with name note, Story with fake Finder window, Values, Team, scroll-driven Timeline
+- [x] Header with name note, Story with fake Finder window, Values, Team, scroll-driven Timeline
 
 **AC:** Timeline line draws with scroll; team cards reveal with stagger; reduced motion shows static timeline.
 
 ### T13. Contact
 
-- [ ] Contact window, form with zod validation (`pages-spec.md`), service preselect from query string, simulated submit, success state with confetti and reply bubble, reset
+- [x] Contact window, form with zod validation (`pages-spec.md`), service preselect from query string, simulated submit, success state with confetti and reply bubble, reset
 
 **AC:** Validation messages match `content.md`; no network calls; success state is announced to screen readers; reset works.
 
 ### T14. Not found page
+
+- [x] Custom `not-found.tsx` with the glass 404 window, confused bubble, emoji, and Home button
 
 **AC:** `/does-not-exist` shows the custom 404.
 
